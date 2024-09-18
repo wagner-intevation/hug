@@ -398,12 +398,10 @@ def test_json_converter_numpy_types():
         numpy.ushort,
     ]
     np_float_types = [
-        numpy.float_,
         numpy.float32,
         numpy.float64,
         numpy.half,
         numpy.single,
-        numpy.longfloat,
     ]
     np_unicode_types = [numpy.str_]
     np_bytes_types = [numpy.bytes_]
