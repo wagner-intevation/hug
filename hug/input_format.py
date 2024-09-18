@@ -73,11 +73,11 @@ def multipart(body, content_length=0, **header_params):
     """Converts multipart form data into native Python objects"""
     header_params.setdefault("CONTENT-LENGTH", content_length)
     if header_params and "boundary" in header_params:
-        if type(header_params["boundary"]) is str:
+        if isinstance(header_params["boundary"], str):
             header_params["boundary"] = header_params["boundary"].encode()
 
     form = parse_multipart((body.stream if hasattr(body, "stream") else body), header_params)
     for key, value in form.items():
-        if type(value) is list and len(value) == 1:
+        if isinstance(value, list) and len(value) == 1:
             form[key] = value[0]
     return form
